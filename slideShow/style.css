@@ -1,0 +1,46 @@
+
+body{
+    background-color: aliceblue;
+}.container{
+    width: 100%;
+    margin: auto;
+    /* border: 5px solid yellow; */
+    width: 100%;
+    height: 100vh;
+    /* border-radius: 10px; */
+    background-color: rgb(216, 210, 202);
+}
+h1{
+    text-align: center;
+}
+img{
+    /* margin: 30px; */
+    margin: auto;
+    position: relative;
+    /* border: 5px solid yellow; */
+    width: 100%;
+    height: 80vh;
+    /* border-radius: 10%; */
+    
+}
+.bottons{
+    margin: 20px;
+    text-align: center;
+    
+}
+button{
+    width: 80px;
+    height: 30px;
+    padding: 10px;
+    background-color: yellow;
+    border: none;
+    border-radius: 10%;
+    /* border-radius: 5px; */
+}
+#start{
+    background-color: green;
+
+}
+#stop{
+    background-color: red;
+}

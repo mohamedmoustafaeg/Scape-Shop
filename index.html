@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link your stylesheet -->
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <span class="welcome">Welcome, <span id="userName"></span></span>
+        <div class="nav-buttons">
+            <button onclick="showCart()">Cart(<span id="cartCount">0</span>)</button>
+            <button onclick="showProducts()">Products</button>
+            <button onclick="showHome()">Home</button>
+        </div>
+        <button id="logout" onclick="logout()">Logout</button>
+    </div>
+
+    
+    <div class="container" id="loginFormContainer">
+        <h2 class="login-header">Login Page</h2>
+        <hr>
+        <div id="loginForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+                <div id="nameError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+                <div id="emailError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password">
+                <div id="passwordError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword">
+                <div id="confirmPasswordError" class="error"></div>
+            </div>
+            <button  class="register-btn" onclick="register()">Register</button>
+        </div>
+    </div>
+    
+    <div class="slideshow-container" id="slideshowContainer">
+        <h1>Scape Shop</h1>
+        <img src="./imgs/1.jpg" alt="Image 1" class="active">
+        <img src="./imgs/2.jpg" alt="Image 2">
+        <img src="./imgs/3.jpg" alt="Image 3">
+        <img src="./imgs/44.jpg" alt="Image 4">
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+    <div class="container-p" id="productPage" style="display: none;">
+        <div class="categories">
+            <button onclick="filterProducts('all')">All</button>
+            <button onclick="filterProducts('phones')">Phones</button>
+            <button onclick="filterProducts('clothes')">Clothes</button>
+            <button onclick="filterProducts('cars')">Cars</button>
+        </div>
+        <div class="products" id="products">
+            <div class="product" data-category="phones">
+                <img src="./phones/1.jpg" alt="Phone">
+                <h2>iPhone 6</h2>
+                <p>Price: $250</p>
+                <button onclick="addToCart('iPhone 6', 250)">Add to cart</button>
+                <button onclick="viewProduct('iPhone 6', 'phones/1.jpg', '$250')">View</button>
+            </div>
+            <div class="product" data-category="phones">
+                <img src="./phones/2.jpg" alt="Phone">
+                <h2>iPhone 5</h2>
+                <p>Price: $150</p>
+                <button onclick="addToCart('iPhone 5', 150)">Add to cart</button>
+                <button onclick="viewProduct('iPhone 5', 'phones/2.jpg', '$150')">View</button>
+            </div>
+            <div class="product" data-category="phones">
+                <img src="./phones/3.jpg" alt="Phone">
+                <h2>Samsung</h2>
+                <p>Price: $200</p>
+                <button onclick="addToCart('Samsung', 200)">Add to cart</button>
+                <button onclick="viewProduct('Samsung', 'phones/3.jpg', '$200')">View</button>
+            </div>
+            <div class="product" data-category="clothes">
+                <img src="./clothes/1.jpg" alt="Clothes">
+                <h2>Blouse</h2>
+                <p>Price: $29</p>
+                <button onclick="addToCart('Blouse', 29)">Add to cart</button>
+                <button onclick="viewProduct('Blouse', 'clothes/1.jpg', '$29')">View</button>
+            </div>
+            <div class="product" data-category="clothes">
+                <img src="./clothes/2.jpg" alt="Clothes">
+                <h2>Necktie</h2>
+                <p>Price: $18</p>
+                <button onclick="addToCart('Necktie', 18)">Add to cart</button>
+                <button onclick="viewProduct('Necktie', 'clothes/2.jpg', '$18')">View</button>
+            </div>
+            <div class="product" data-category="clothes">
+                <img src="./clothes/3.jpg" alt="Clothes">
+                <h2>PullOver</h2>
+                <p>Price: $40</p>
+                <button onclick="addToCart('PullOver', 40)">Add to cart</button>
+                <button onclick="viewProduct('PullOver', 'clothes/3.jpg', '$40')">View</button>
+            </div>
+            <div class="product" data-category="clothes">
+                <img src="./clothes/4.jpg" alt="Clothes">
+                <h2>Pants</h2>
+                <p>Price: $45</p>
+                <button onclick="addToCart('Pants', 45)">Add to cart</button>
+                <button onclick="viewProduct('Pants', 'clothes/4.jpg', '$45')">View</button>
+            </div>
+            <div class="product" data-category="cars">
+                <img src="./cars/1.jpg" alt="Car">
+                <h2>Jeep 2023</h2>
+                <p>Price: $20000</p>
+                <button onclick="addToCart('Jeep 2023', 20000)">Add to cart</button>
+                <button onclick="viewProduct('Jeep 2023', 'cars/1.jpg', '$20000')">View</button>
+            </div>
+            <div class="product" data-category="cars">
+                <img src="./cars/2.jpg" alt="Car">
+                <h2>Mercedes 2024</h2>
+                <p>Price: $40000</p>
+                <button onclick="addToCart('Mercedes 2024', 40000)">Add to cart</button>
+                <button onclick="viewProduct('Mercedes 2024', 'cars/2.jpg', '$40000')">View</button>
+            </div>
+            <div class="product" data-category="cars">
+                <img src="./cars/3.jpg" alt="Car">
+                <h2>Range Rover 2022</h2>
+                <p>Price: $30000</p>
+                <button onclick="addToCart('Range Rover 2022', 30000)">Add to cart</button>
+                <button onclick="viewProduct('Range Rover 2022', 'cars/3.jpg', '$30000')">View</button>
+            </div>
+        </div>
+        <div id="productDetails" style="display: none; padding: 20px; background: #FBF8DD; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin: 20px;">
+            
+        </div>
+    </div>
+    
+    <div id="cartPage" class="container" style="display: none;">
+        <h2>Shopping Cart</h2>
+        <div id="cartItems"></div>
+        <p>Total Price: <span id="totalPrice">$0</span></p>
+        <button onclick="buyNow()">Buy Now</button>
+    </div>
+    <div class="navbar" id="navbar">
+        <span class="welcome">Welcome, <span id="userName"></span></span>
+        <div class="nav-buttons">
+            <button>Products</button>
+            <button>Cart(<span id="cartCount">0</span>)</button>
+            <button onclick="showHome()">Home</button>
+        </div>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <div class="footer">
+
+        Copyright &copy; 2024 all rights reserved designed by Scape dev.
+    </div>
+    <button id="scrollTopBtn" onclick="scrollToTop()">UP</button>
+    <script src="script.js"></script> 
+</body>
+</html>
